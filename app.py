@@ -3,11 +3,11 @@ import streamlit as st
 
 st.title("Consulta de notas – Quiz Sistema Óseo")
 
-df = pd.read_csv("Nota quiz S. Óseo.csv")   # ajusta el nombre si difiere
+df = pd.read_csv("Nota quiz S. Óseo.csv")      # ajusta el nombre si difiere
 dni = st.text_input("Ingresa tu DNI:")
 
 if st.button("Consultar"):
-    fila = df[df["DNI"] == int(dni)]        # cambia "DNI" si tu columna tiene otro encabezado
+    fila = df[df["DNI"] == int(dni)]           # cambia "DNI" si tu columna usa otro encabezado
     if not fila.empty:
         st.dataframe(fila.drop(columns=["DNI"]))
     else:
